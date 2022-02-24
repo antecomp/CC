@@ -10,26 +10,28 @@ public class Prob00 {
 		try (Scanner input = new Scanner(System.in)){
 			int testCases = Integer.parseInt(input.nextLine());
 			for(int testcase = 0; testcase < testCases; testcase++) {
-				// Actual code starts here
 				input.useDelimiter("[,\r\n]"); // tell the scanner to use , or new line as delimeter.
-			//	int[] board = {input.nextInt(), input.nextInt()};
-			//	int[] bishop = {input.nextInt(), input.nextInt()};
-			//	int[] loc = {input.nextInt(), input.nextInt()};
 
-			// Represent the cordinate points with a boolean of if those points are odd or even
-			boolean[] board = {iE(input.nextInt()), iE(input.nextInt())};
-			boolean[] bishop = {iE(input.nextInt()), iE(input.nextInt())};
-			boolean[] loc = {iE(input.nextInt()), iE(input.nextInt())};
+				int[] board = {input.nextInt(), input.nextInt()};
+				boolean[] bishop = {iE(input.nextInt()), iE(input.nextInt())};
+//				boolean[] loc = {iE(input.nextInt()), iE(input.nextInt())}; // this one works just fine if the board constraint isn't needed.
 
-			// Test input;
-			System.out.println(Arrays.toString(board));
-			System.out.println(Arrays.toString(bishop));
-			System.out.println(Arrays.toString(loc));
+				// Condition: New Location fits within constraints of the board. IDK if this is needed, protect against edge-cases.
+				// else code just prints no and skips to the next case.
+				boolean[] loc = new boolean[2];
+				int l1 = input.nextInt();
+				int l2 = input.nextInt();
+				if(l1 <= board[0] && l2 <= board[1]) {
+					loc[0] = iE(l1);
+					loc[1] = iE(l2);
+				} else { 
+					System.out.println("No");
+					continue;
+				}
 
-			// aodfhdsfk
-			System.out.println(
-					(board[0] == board[1]) == (loc[0] == loc[1]) // odd/even relationship is the same
-			)
+				System.out.println(
+						((bishop[0] == bishop[1]) == (loc[0] == loc[1])) ? "Yes" : "No" // odd/even relationship is the same
+				);
 			}
 		}
 	}
