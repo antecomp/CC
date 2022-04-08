@@ -32,8 +32,9 @@ public class SecretMessage {
 					}
 				}
 
-				/* System.out.println(Arrays.deepToString(matrix).replaceAll("],", "]\n"));
-				System.out.println(); */
+				System.out.println("Original:");
+				System.out.println(Arrays.deepToString(matrix).replaceAll("],", "]\n"));
+				System.out.println(); 
 
 				for(int row = 0; row < matrixDims; row++) { //transpose
 					for(int col = row; col < matrixDims; col++) {
@@ -43,6 +44,10 @@ public class SecretMessage {
 					}
 				}
 
+				System.out.println("Tranposed:");
+				System.out.println(Arrays.deepToString(matrix).replaceAll("],", "]\n"));
+				System.out.println(); 
+
 				//. god is dead
 				for (char[] row : matrix) {
 					for (int i = 0; i < row.length / 2; i++) {
@@ -51,6 +56,9 @@ public class SecretMessage {
 						row[row.length - i - 1] = temp;
 					}
 				}
+				System.out.println("Rotated:");
+				System.out.println(Arrays.deepToString(matrix).replaceAll("],", "]\n"));
+				System.out.println(); 
 
 				System.out.println(Arrays.deepToString(matrix).replaceAll("\\[|\\]|,|\\s|\\*", ""));
 
