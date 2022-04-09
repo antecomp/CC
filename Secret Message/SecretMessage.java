@@ -3,7 +3,7 @@ import java.util.*;
 public class SecretMessage {
 
 	static int nextPerfectSquare(int N) {
-		int nextN = (int) Math.floor(Math.sqrt(N)) + 1;
+		int nextN = (int) Math.ceil(Math.sqrt(N));
 		return nextN * nextN;
 	}
 	
@@ -32,9 +32,9 @@ public class SecretMessage {
 					}
 				}
 
-				System.out.println("Original:");
+				/* System.out.println("Original:");
 				System.out.println(Arrays.deepToString(matrix).replaceAll("],", "]\n"));
-				System.out.println(); 
+				System.out.println(); */
 
 				for(int row = 0; row < matrixDims; row++) { //transpose
 					for(int col = row; col < matrixDims; col++) {
@@ -44,11 +44,11 @@ public class SecretMessage {
 					}
 				}
 
-				System.out.println("Tranposed:");
+				/* System.out.println("Tranposed:");
 				System.out.println(Arrays.deepToString(matrix).replaceAll("],", "]\n"));
-				System.out.println(); 
+				System.out.println(); */
 
-				//. god is dead
+				//. geniune despair
 				for (char[] row : matrix) {
 					for (int i = 0; i < row.length / 2; i++) {
 						char temp = row[i];
@@ -56,9 +56,9 @@ public class SecretMessage {
 						row[row.length - i - 1] = temp;
 					}
 				}
-				System.out.println("Rotated:");
-				System.out.println(Arrays.deepToString(matrix).replaceAll("],", "]\n"));
-				System.out.println(); 
+				// System.out.println("Rotated:");
+				// System.out.println(Arrays.deepToString(matrix).replaceAll("],", "]\n"));
+				// System.out.println(); 
 
 				System.out.println(Arrays.deepToString(matrix).replaceAll("\\[|\\]|,|\\s|\\*", ""));
 
